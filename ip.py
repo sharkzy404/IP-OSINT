@@ -34,12 +34,14 @@ def banner():
     St.RESET_ALL
 
 def get_ip_details():
-    print (Fr.BLUE+"[*]••To Get device ip info :Y: \n[*]••To get quest ip info :N:\n[*]••To clear screen :clear:")
+    print (Fr.BLUE+"[*]••To Get device ip info :Y: \n[*]••To get q
+uest ip info :N:\n[*]••To clear screen :clear:")
     print (" ")
     inp = input(Fr.YELLOW+"[*]>> "+St.RESET_ALL).upper()
     print (" ")
     if inp == "Y":
-        print (Fr.RED+"[*]••Loading...........................\n")
+        print (Fr.GREEN+"[*]••Loading...........................\n
+")
         tm.sleep(2)
         num = 0
         while True:
@@ -48,31 +50,36 @@ def get_ip_details():
                 url = requests.get("https://ipinfo.io")
                 break
             except:
-                print (Fr.RED+"no internet connection", num)
+                print (Fr.RED+"no internet connection", Fr.BLUE+st
+r(num))
                 tm.sleep(0.5)
                 pass
     elif inp == "N":
         while True:
             try:
-                ip = input(Fr.GREEN+"[*]>>Guest IP: "+St.RESET_ALL)
+                ip = input(Fr.GREEN+"[*]>>Guest IP: "+St.RESET_ALL
+)
                 print (" ")
                 break
             except:
                 print (Fr.RED+"bad inputs")
                 pass
-        print (Fr.RED+"[*]••Loading.......................\n")
+        print (Fr.GREEN+"[*]••Loading.......................\n")
         tm.sleep(2)
         num = 0
         while True:
             num += 1
             try:
-                url = requests.post("https://ipinfo.io", json={"ip":ip})
+                url = requests.post("https://ipinfo.io", json={"ip
+":ip})
                 break
             except:
-                print (Fr.RED+"no internet connection"+Fr.BLUE+num)
+                print (Fr.RED+"no internet connection", Fr.BLUE+st
+r(num))
                 tm.sleep(0.5)
                 try:
-                    if socket.gethostbyname("facebook.com") == True:
+                    if socket.gethostbyname("facebook.com") == Tru
+e:
                         break
                 except socket.gaierror:
                     pass
@@ -94,7 +101,8 @@ def get_ip_details():
         for key in keys:
             key_info = key
             data_info = load[key_info]
-            print (Fr.YELLOW+"[*] "+key+": "+Fr.GREEN+str(data_info))
+            print (Fr.YELLOW+"[*] "+key+": "+Fr.GREEN+str(data_inf
+o))
         print (" ")
         tm.sleep(3)
 
