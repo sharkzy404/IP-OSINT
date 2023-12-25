@@ -10,38 +10,19 @@ syst("clear")
 
 def banner():
     data = """
-∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆0∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆
-∆                      IP•ADDRESS OSINT                        ∆
-∆                   POWERED BY: ipinfo.io                      ∆
-"""
-    data1 = """
-∆             [ AUTHOR:  IBRAHIM ABDUL SHAKUR   ]              ∆
-∆             [ WHATSAPP: wa.me/+2348130573510  ]              ∆
-∆             [ FACEBOOK:   Shārk Zy :  Shā Rk  ]              ∆
-∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆0∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆∆
-"""
-
-    for val in data:
-        sys.stderr.write(Fr.GREEN+val)
-        tm.sleep(0.001)
-        sys.stderr.flush()
-
-    for val in data1:
-        sys.stderr.write(Fr.YELLOW+val)
-        tm.sleep(0.001)
-        sys.stderr.flush()
-    print (" ")
+                           Mr.SHARK IP OSINT
+                •♪••••••••Powered by ipinfo.io••••••♪••••
+    """
+    print(Fr.YELLOW+data)
     St.RESET_ALL
 
 def get_ip_details():
-    print (Fr.BLUE+"[*]••To Get device ip info :Y: \n[*]••To get q
-uest ip info :N:\n[*]••To clear screen :clear:")
+    print (Fr.BLUE+"[*]To Get device ip info :Y: \n[*]To get quest ip info :N:\n[*]••To clear screen :clear:")
     print (" ")
-    inp = input(Fr.YELLOW+"[*]>> "+St.RESET_ALL).upper()
+    inp = input(Fr.YELLOW+"[*]: "+St.RESET_ALL).upper()
     print (" ")
     if inp == "Y":
-        print (Fr.GREEN+"[*]••Loading...........................\n
-")
+        print (Fr.GREEN+"[*]Loading")
         tm.sleep(2)
         num = 0
         while True:
@@ -50,36 +31,32 @@ uest ip info :N:\n[*]••To clear screen :clear:")
                 url = requests.get("https://ipinfo.io")
                 break
             except:
-                print (Fr.RED+"no internet connection", Fr.BLUE+st
-r(num))
+                print (Fr.RED+"[x]No internet connection", num)
                 tm.sleep(0.5)
                 pass
     elif inp == "N":
         while True:
             try:
-                ip = input(Fr.GREEN+"[*]>>Guest IP: "+St.RESET_ALL
-)
+                ip = input(Fr.GREEN+"[*]Guest IP: "+St.RESET_ALL)
                 print (" ")
                 break
             except:
-                print (Fr.RED+"bad inputs")
+                print (Fr.RED+"[x]Bad inputs")
                 pass
-        print (Fr.GREEN+"[*]••Loading.......................\n")
+        print (Fr.YELLOW+"[*]Loading\n")
         tm.sleep(2)
         num = 0
         while True:
             num += 1
             try:
-                url = requests.post("https://ipinfo.io", json={"ip
-":ip})
+                url = requests.post("https://ipinfo.io", json={"ip":ip})
                 break
             except:
-                print (Fr.RED+"no internet connection", Fr.BLUE+st
-r(num))
+                print (Fr.RED+"[x]No internet connection", num)
+
                 tm.sleep(0.5)
                 try:
-                    if socket.gethostbyname("facebook.com") == Tru
-e:
+                    if socket.gethostbyname("facebook.com") == True:
                         break
                 except socket.gaierror:
                     pass
@@ -88,7 +65,7 @@ e:
         run_engine()
 
     else:
-        print (Fr.RED+"invalid")
+        print (Fr.RED+"[x]Invalid")
         quit(0)
 
     data = url.text
@@ -101,13 +78,12 @@ e:
         for key in keys:
             key_info = key
             data_info = load[key_info]
-            print (Fr.YELLOW+"[*] "+key+": "+Fr.GREEN+str(data_inf
-o))
+            print (Fr.YELLOW+"[✓] "+key+": "+Fr.GREEN+str(data_info))
         print (" ")
         tm.sleep(3)
 
     elif res == 404:
-        print (Fr.RED+"[*]Error, invalid ip address[*]")
+        print (Fr.RED+"[x]Error, invalid ip address")
         print (" ")
         tm.sleep(3)
 
