@@ -77,17 +77,20 @@ def guest_info():
 
 banner()
 while True:
-    print(Fr.CYAN+"[*]To get device ip info input < X >\n[*]To get guest ip info input < Y >\n[*]To clear screen < C >")
-    inp = input(Fr.YELLOW+"[%]: "+Fr.WHITE).upper()
-    if inp == "X":
-        device_info()
-    elif inp == "Y":
-        guest_info()
-    elif inp == "C":
-        syst("clear")
-        banner()
-    else:
-        print(Fr.RED+"[x]Invalid input\n")
+    try:
+        print(Fr.CYAN+"[*]To get device ip info input < X >\n[*]To get guest ip info input < Y >\n[*]To clear screen < C >")
+        inp = input(Fr.YELLOW+"[%]: "+Fr.WHITE).upper()
+        if inp == "X":
+            device_info()
+        elif inp == "Y":
+            guest_info()
+        elif inp == "C":
+            syst("clear")
+            banner()
+        else:
+            print(Fr.RED+"[x]Invalid input\n")
+    except KeyboardInterrupt:
+        quit(0)
 
 
 
